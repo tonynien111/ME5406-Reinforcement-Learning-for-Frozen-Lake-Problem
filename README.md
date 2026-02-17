@@ -69,18 +69,17 @@ Create GIF animations showing agent movement for different algorithm
 ```bash
 python gif_generator.py
 ```
-Saves GIFs to `results/{algorithm}/{grid_size}/`
 
 #### Monte Carlo
 
 | 4x4 Environment | 10x10 Environment |
-|---|
+|---|---|
 | ![Monte Carlo 4x4](results/monte_carlo/4x4/monte_carlo_4x4_demo.gif) | ![Monte Carlo 10x10](results/monte_carlo/10x10/monte_carlo_10x10_demo.gif) |
 
 #### SARSA
 
 | 4x4 Environment | 10x10 Environment |
-|---|
+|---|---|
 | ![SARSA 4x4](results/sarsa/4x4/sarsa_4x4_demo.gif) | ![SARSA 10x10](results/sarsa/10x10/sarsa_10x10_demo.gif) |
 
 #### Q-Learning
