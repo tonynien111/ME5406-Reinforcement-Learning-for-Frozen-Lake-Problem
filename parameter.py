@@ -1,8 +1,8 @@
 import os
 
 # environment parameters
-GRID_SIZE = 10 # size of map
-NUM_EPISODES = 8000  # number of episodes for training (2000 for 4x4, 8000 for 10x10)
+GRID_SIZE = 4 # size of map
+NUM_EPISODES = 2000  # number of episodes for training (2000 for 4x4, 8000 for 10x10)
 
 # tuning parameter ranges
 LEARNING_RATE_VALUES = [0.05, 0.1, 0.2, 0.3]  # Learning rates to test

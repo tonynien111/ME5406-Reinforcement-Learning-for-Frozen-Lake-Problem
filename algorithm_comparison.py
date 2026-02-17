@@ -108,7 +108,7 @@ def plot_metrics(all_stats, results_dir):
     # Prepare data
     algorithms = list(all_stats.keys())
     colors = {'Monte Carlo': '#1f77b4', 'SARSA': '#ff7f0e', 'Q-Learning': '#2ca02c'}
-    window_size = 10  # Moving average window size
+    window_size = 50  # Moving average window size
     
     # Plot 1: total steps vs episode
     fig, ax = plt.subplots(figsize=(12, 6))
