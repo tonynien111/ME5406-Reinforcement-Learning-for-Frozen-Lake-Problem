@@ -96,19 +96,27 @@ def save_summary_table(all_stats, results_dir):
             })
 
 
+def moving_average(data, window_size=10):
+    if len(data) < window_size:
+        return data
+    return np.convolve(data, np.ones(window_size)/window_size, mode='valid')
+
+
 def plot_metrics(all_stats, results_dir):
     os.makedirs(results_dir, exist_ok=True)
     
     # Prepare data
     algorithms = list(all_stats.keys())
     colors = {'Monte Carlo': '#1f77b4', 'SARSA': '#ff7f0e', 'Q-Learning': '#2ca02c'}
+    window_size = 10  # Moving average window size
     
     # Plot 1: total steps vs episode
     fig, ax = plt.subplots(figsize=(12, 6))
     for algorithm in algorithms:
         total_steps = np.array(all_stats[algorithm]['total_steps'])
-        episodes = np.arange(1, NUM_EPISODES + 1)
-        ax.plot(episodes, total_steps, label=algorithm, linewidth=2.5, color=colors.get(algorithm, None), alpha=0.7)
+        smoothed_steps = moving_average(total_steps, window_size)
+        episodes = np.arange(len(smoothed_steps))
+        ax.plot(episodes, smoothed_steps, label=algorithm, linewidth=2.5, color=colors.get(algorithm, None), alpha=0.7)
     
     ax.set_xlabel('Episode', fontsize=12, fontweight='bold')
     ax.set_ylabel('Total Steps', fontsize=12, fontweight='bold')
@@ -123,8 +131,9 @@ def plot_metrics(all_stats, results_dir):
     fig, ax = plt.subplots(figsize=(12, 6))
     for algorithm in algorithms:
         total_reward = np.array(all_stats[algorithm]['total_reward'])
-        episodes = np.arange(1, NUM_EPISODES + 1)
-        ax.plot(episodes, total_reward, label=algorithm, linewidth=2.5, color=colors.get(algorithm, None), alpha=0.7)
+        smoothed_rewards = moving_average(total_reward, window_size)
+        episodes = np.arange(len(smoothed_rewards))
+        ax.plot(episodes, smoothed_rewards, label=algorithm, linewidth=2.5, color=colors.get(algorithm, None), alpha=0.7)
     
     ax.set_xlabel('Episode', fontsize=12, fontweight='bold')
     ax.set_ylabel('Total Reward', fontsize=12, fontweight='bold')
@@ -141,8 +150,9 @@ def plot_metrics(all_stats, results_dir):
         total_reward = np.array(all_stats[algorithm]['total_reward'])
         total_steps = np.array(all_stats[algorithm]['total_steps'])
         avg_reward = np.divide(total_reward, total_steps, where=total_steps!=0, out=np.zeros(len(total_steps)))
-        episodes = np.arange(1, NUM_EPISODES + 1)
-        ax.plot(episodes, avg_reward, label=algorithm, linewidth=2.5, color=colors.get(algorithm, None), alpha=0.7)
+        smoothed_average_rewards = moving_average(avg_reward, window_size)
+        episodes = np.arange(len(smoothed_average_rewards))
+        ax.plot(episodes, smoothed_average_rewards, label=algorithm, linewidth=2.5, color=colors.get(algorithm, None), alpha=0.7)
     
     ax.set_xlabel('Episode', fontsize=12, fontweight='bold')
     ax.set_ylabel('Average Reward per Step', fontsize=12, fontweight='bold')
