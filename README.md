@@ -52,9 +52,16 @@ Outputs:
 - 10x10: `results/comparison/comparison_summary_10x10.csv`
 
 **Comparison Plots:**
-- Total Steps: `results/comparison/comparison_total_steps_{GRID_SIZE}x{GRID_SIZE}.png`
-- Total Reward: `results/comparison/comparison_total_reward_{GRID_SIZE}x{GRID_SIZE}.png`
-- Average Reward: `results/comparison/comparison_average_reward_{GRID_SIZE}x{GRID_SIZE}.png`
+
+**4x4 Environment:**
+![Total Steps 4x4](results/comparison/comparison_total_steps_4x4x4.png)
+![Total Reward 4x4](results/comparison/comparison_total_reward_4x4x4.png)
+![Average Reward 4x4](results/comparison/comparison_average_reward_4x4x4.png)
+
+**10x10 Environment:**
+![Total Steps 10x10](results/comparison/comparison_total_steps_10x10x10.png)
+![Total Reward 10x10](results/comparison/comparison_total_reward_10x10x10.png)
+![Average Reward 10x10](results/comparison/comparison_average_reward_10x10x10.png)
 
 
 ### 3. Generate Visualizations
@@ -65,16 +72,28 @@ python gif_generator.py
 Saves GIFs to `results/{algorithm}/{grid_size}/`
 
 #### Monte Carlo
-- 4x4: `results/monte_carlo/4x4/monte_carlo_4x4_demo.gif`
-- 10x10: `results/monte_carlo/10x10/monte_carlo_10x10_demo.gif`
+
+**4x4 Environment:**
+![Monte Carlo 4x4](results/monte_carlo/4x4/monte_carlo_4x4_demo.gif)
+
+**10x10 Environment:**
+![Monte Carlo 10x10](results/monte_carlo/10x10/monte_carlo_10x10_demo.gif)
 
 #### SARSA
-- 4x4: `results/sarsa/4x4/sarsa_4x4_demo.gif`
-- 10x10: `results/sarsa/10x10/sarsa_10x10_demo.gif`
+
+**4x4 Environment:**
+![SARSA 4x4](results/sarsa/4x4/sarsa_4x4_demo.gif)
+
+**10x10 Environment:**
+![SARSA 10x10](results/sarsa/10x10/sarsa_10x10_demo.gif)
 
 #### Q-Learning
-- 4x4: `results/q_learning/4x4/q_learning_4x4_demo.gif`
-- 10x10: `results/q_learning/10x10/q_learning_10x10_demo.gif`
+
+**4x4 Environment:**
+![Q-Learning 4x4](results/q_learning/4x4/q_learning_4x4_demo.gif)
+
+**10x10 Environment:**
+![Q-Learning 10x10](results/q_learning/10x10/q_learning_10x10_demo.gif)
 
 
 ## Project Structure
