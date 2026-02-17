@@ -66,6 +66,8 @@ Outputs:
 
 ### 3. Generate Visualizations
 Create GIF animations showing agent movement for different algorithm
+we will use deterministic policy and the final Q-table after the training episodes. 
+
 ```bash
 python gif_generator.py
 ```
