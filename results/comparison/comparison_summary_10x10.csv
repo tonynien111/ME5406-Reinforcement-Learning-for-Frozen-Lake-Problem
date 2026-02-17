@@ -1,0 +1,4 @@
+algorithm,success_rate,first_goal_episode,final_total_steps,final_total_reward
+Monte Carlo,0.0000,-1,100,0.0000
+SARSA,0.7208,272,22,1.0000
+Q-Learning,0.6991,657,19,-1.0000

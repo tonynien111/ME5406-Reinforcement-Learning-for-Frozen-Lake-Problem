@@ -1,0 +1,4 @@
+algorithm,learning_rate,gamma,epsilon,first_goal_episode,success_rate,final_reward,final_steps
+Monte Carlo,,0.8,0.05,-1,0.0,-1.1307821214581712e-08,83
+SARSA,0.05,0.99,0.05,225,0.7105,1,19
+Q-Learning,0.05,0.99,0.05,163,0.754875,1,18
